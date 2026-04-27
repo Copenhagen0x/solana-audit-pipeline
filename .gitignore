@@ -1,0 +1,39 @@
+# Rust build artifacts
+target/
+Cargo.lock
+*.rlib
+*.rmeta
+*.d
+*.o
+*.dSYM/
+
+# Editor / OS noise
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Direnv / env files
+.envrc
+.env
+.env.local
+
+# Python (in case we add helper scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+
+# Local note scratchpads
+SCRATCH.md
+NOTES.md
+TODO.md
+
+# Generated audit artifacts
+output/
+results/
+*.log.gz

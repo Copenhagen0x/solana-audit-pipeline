@@ -1,0 +1,67 @@
+Solana Audit Pipeline — dual license
+
+Copyright (c) 2026 Kirill Sakharuk (https://github.com/Copenhagen0x)
+
+============================================================
+DOCUMENTATION (CC BY 4.0)
+============================================================
+
+The following files and directories are licensed under the
+Creative Commons Attribution 4.0 International License (CC BY 4.0):
+
+  - README.md
+  - docs/ (all .md files)
+  - examples/ (all .md files)
+  - agent_prompts/ (all .md files)
+  - CHANGELOG.md (if present)
+
+You are free to:
+  - Share — copy and redistribute in any medium or format
+  - Adapt — remix, transform, and build upon, even commercially
+
+Under the following terms:
+  - Attribution — You must give appropriate credit, provide a link to
+    the license, and indicate if changes were made.
+
+Full legal text:    https://creativecommons.org/licenses/by/4.0/legalcode
+Human-readable:     https://creativecommons.org/licenses/by/4.0/
+
+============================================================
+TEMPLATES AND SCRIPTS (Apache-2.0)
+============================================================
+
+The following files and directories are licensed under the
+Apache License, Version 2.0:
+
+  - templates/ (all .rs.template files)
+  - scripts/ (all .sh files)
+
+Apache License 2.0 (excerpt):
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+Full legal text:    http://www.apache.org/licenses/LICENSE-2.0
+
+============================================================
+SCOPE NOTES
+============================================================
+
+The Apache-2.0 license on templates and scripts was chosen for
+compatibility with most upstream Solana program licenses (the largest
+ecosystem repos use Apache-2.0 or MIT). If you adapt a template into
+an upstream program with a different license, the resulting derivative
+takes the upstream's license; the template itself remains Apache-2.0
+in this repository.
+
+Verify upstream licenses before redistributing template-derived test
+code at scale.
