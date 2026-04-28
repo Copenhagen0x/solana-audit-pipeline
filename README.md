@@ -4,6 +4,8 @@ A reusable, formal-verification-grade security audit pipeline for Solana program
 
 **Built and proven on**: [`Copenhagen0x/percolator-audit-2026-04`](https://github.com/Copenhagen0x/percolator-audit-2026-04) — independent security audit of Anatoly Yakovenko's Percolator perpetual DEX. Pipeline produced 1 active bug, 2 code-defect-class findings, 10 formal SAFE proofs (including 2 that machine-checked the maintainer's own G3 closure statement), and re-verified 305/305 of the maintainer's existing Kani proofs against current main with zero regressions.
 
+> **Now operationalized as [SENTINEL](https://github.com/Copenhagen0x/audit-pipeline-cli)** — the autonomous audit platform built on this methodology. Continuous source-code monitoring, multi-agent recon, adversarial debate, empirical PoC validation, formal verification, and live mainnet shadow detection — orchestrated end-to-end without human intervention. Confirmed disclosure track record: [F7 against Percolator](https://github.com/aeyakovenko/percolator-prog/pull/39).
+
 ---
 
 ## Why this exists
