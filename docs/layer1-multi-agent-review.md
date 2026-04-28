@@ -55,6 +55,22 @@ Phase 3: SYNTHESIS
 | Hypothesis bias — "find this bug" produces false positives | Frame hypotheses as "is this invariant true?" — produces clean negatives that strengthen the disclosure |
 | Agent stops at the first plausible answer instead of exhaustively scanning | Add to the prompt: "List EVERY instance, even minor. Final tally must include at least N items." |
 | Agents converge on the same candidate (because the prompt over-anchored) | Disjoint hypotheses; spread the surface so each agent owns a non-overlapping slice |
+| **Agent returns FALSE / HIGH on a hypothesis you have independent evidence for** | **Re-frame and re-dispatch.** A FALSE / HIGH verdict against your prior is a signal the agent collapsed multiple call paths, trusted a doc comment over the code, or stopped at the first compensating mechanism it saw. Build a sharper, narrower prompt that forces explicit BEFORE/AFTER state-tabling on the specific path you suspect — and cite the path in the prompt itself. See "The re-dispatch rule" below. |
+| Agent trusts documentation over behavior | Add to the prompt: "A doc comment that says 'MUST NOT do X' is evidence about INTENT, not behavior. Verify by tracing the call graph." |
+
+## The re-dispatch rule
+
+A single Layer-1 verdict is a starting point, not an answer. Treat the synthesis phase as load-bearing:
+
+1. If an agent returns **TRUE / HIGH**, queue the candidate for Layer 2.
+2. If an agent returns **FALSE / HIGH** *and you have independent evidence the bug exists*, **re-dispatch**. Don't accept the verdict. Instead, build a sharper second prompt that:
+   - Names the specific call path you suspect (file + function name)
+   - Demands an explicit BEFORE/AFTER state table for the variables in your invariant
+   - Asks the agent to address — not skip — the counter-arguments the first agent raised
+3. If an agent returns **NEEDS_LAYER_2_TO_DECIDE**, that's the most honest verdict. Queue Layer 2.
+4. If an agent returns **FALSE / HIGH** and you have no independent evidence, you can drop the hypothesis — but consider one more dispatch with a different framing before doing so. Cost is low; missed findings are expensive.
+
+The Percolator F7 disclosure was almost lost to a FALSE / HIGH verdict on the first dispatch (the agent was bluffed by a doc comment that said "MUST NOT drain V"). The same hypothesis under a sharper prompt — explicitly naming the `resolve_flat_negative` call path and demanding a state table — returned RESIDUAL_GROWS / HIGH and surfaced the bug. **Single-agent verdicts are not the floor for accepting or rejecting a hypothesis.**
 
 ## How many agents in parallel?
 
